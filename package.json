@@ -1,14 +1,24 @@
 {
-  "name": "vue-table",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vuetytable",
+  "version": "0.1.1",
+  "license": "MIT",
+  "private": false,
+  "author": "Ahmed Yasser",
+  "description": "vue js dynamic table",
+  "main": "dist/vuetytable.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build": "vue-cli-service build --target lib src/components/vueTable.vue",
+    "now-build": "vue-cli-service build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -18,6 +28,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "sweetalert": "^2.1.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -38,5 +49,14 @@
     "> 1%",
     "last 2 versions",
     "not dead"
+  ],
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "keywords": [
+    "vue",
+    "laravel",
+    "dynamic table"
   ]
 }

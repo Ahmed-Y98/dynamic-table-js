@@ -1,24 +1,86 @@
-# vue-table
+<h1 align="center">
+    vuety Table
+</h1>
 
-## Project setup
-```
-npm install
-```
+This Vue Component can draw a table dynamically.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+###### THERE IS NO MORE FOREACH headache.
 
-### Compiles and minifies for production
-```
-npm run build
+## Prepare The Environment
+
+```bash
+    $ npm install
 ```
 
-### Lints and fixes files
+## Dependencies
+
+- Bootstrap 4
+- Fontawesome 4
+- VueJs
+
+## Usage
+
+```js
+import vuetytable from "vuetytable";
+
+new Vue({
+  components: {
+    vuetytable,
+  },
+}).$mount("app_root_element");
 ```
-npm run lint
+```js
+import "vuetytable/dist/vuetytable.css";
+```
+Inside your blade view
+
+```html
+<custom-table
+  :data="{{ json_encode($data)  }}"
+  :actions="{{ json_encode($actions) }}"
+/>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Inside Your Controller
+
+- \$data will have the records fetched from the database
+- If you want the actions to appear in the table pass the actions key
+- Actions key have different options:
+  - The Required Are
+    - tag should be <a> or <form>
+    - btn is your preferred bootstrap class for buttons
+    - url
+  - The optional Are
+    - icon is your preferred icon from the fontawesome library
+    - text that will be displayed on the action
+    - alert for authorization before submiting the form
+
+**Note:**
+
+- alert option works with <form> tag only
+- icon or text options at least one of them should appear.
+
+```php
+  public function table()
+    {
+
+
+        return view('basicdata::table', [
+            'data' => $data,
+            'actions' => [
+                [
+                    "tag" => 'form',
+                    "btn" => 'btn-dark',
+                    "icon" => "fa-edit",
+                    'url' => '/yourRoute',
+                    'text' => 'update',
+                    'alert' => str_replace(' ', '_', 'Are You Sure You Want to Update This Record ?'),
+                ],
+            ],
+        ]);
+    }
+```
+
+<h4 align="center">
+    Thanks And Happy Coding
+</h4>
