@@ -96,12 +96,12 @@ import "vuetytable/dist/vuetytable.css";
 ###### NEW:
 
 - With the options prop you can customize the table even more.
-  -- if you want to display an image in the table you can now do that by passing the image object which contains the following keys:
-  ---- `column` is the column name of the picture.
-  ---- `height` of the picture.
-  ---- `width` of the picture.
-  -- `columns` which contains customizable options for the table head and the table body.
-  -- `urlColumnCode` if you want to change the code in the url.
+- if you want to display an image in the table you can now do that by passing the image object which contains the following keys:
+- `column` is the column name of the picture.
+- `height` of the picture.
+- `width` of the picture.
+- `columns` which contains customizable options for the table head and the table body.
+- `urlColumnCode` if you want to change the code in the url.
 
 **Note:**
 

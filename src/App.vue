@@ -3,34 +3,11 @@
     <div class="container">
       <div class="row">
         <vue-table
+        class="ahmed"
           :data="records"
           :actions="actions"
-          v-if="status"
           :options="{
-            image: {
-              column: 'picture',
-              width: 50,
-              height: 50,
-            },
-            columns: {
-              thead: {
-                align: 'center',
-                styles: {
-                  'text-transform': 'capitalize',
-                  'font-weight': 'bold',
-                  'font-style': 'italic',
-                },
-              },
-              tbody: {
-                align: 'center',
-                styles: {
-                  'text-transform': 'capitalize',
-                  'font-weight': 'bold',
-                  'font-style': 'italic',
-                },
-              },
-            },
-            urlColumnCode: 'id',
+           urlColumnCode: 'id'
           }"
         />
       </div>
@@ -52,14 +29,10 @@ export default {
         {
           id: 1,
           name: "test",
-          picture:
-            "https://images.unsplash.com/photo-1606942790567-5783bab8d944?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80",
         },
         {
           id: 2,
           name: "test",
-          picture:
-            "https://images.unsplash.com/photo-1606942790567-5783bab8d944?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80",
         },
       ],
       actions: [
@@ -74,12 +47,12 @@ export default {
     };
   },
   beforeCreate() {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => {
-        this.status = true;
-        this.records = json;
-      });
+    // fetch("https://jsonplaceholder.typicode.com/todos")
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     this.status = true;
+    //     this.records = json;
+    //   });
   },
 };
 </script>

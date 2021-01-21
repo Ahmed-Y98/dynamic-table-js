@@ -1,16 +1,14 @@
-const drawTable = (vm, options) => {
+const drawTable = (vm, options, classes) => {
   // get column Names
   vm.getColumnNames();
   // create table
   const table = document.createElement("table");
   // add classes and ID  to the table
-  table.className = `table
-        table-light
-        table-striped
-        table-responsive-sm
-        table-responsive-md
-        table-bordered
-        table-hover`;
+  table.className = `table table-light table-striped table-responsive-sm table-responsive-md table-bordered table-hover `;
+
+  if (classes) {
+    table.className += classes;
+  }
 
   table.setAttribute("id", "vuetyTable");
 
@@ -36,25 +34,32 @@ const drawTable = (vm, options) => {
 
   vm.$data.columns.forEach((column) => {
     const th = document.createElement("th");
-    if (Object.prototype.hasOwnProperty.call(options.columns, "thead")) {
-      const thElement = th.classList;
-      switch (options.columns.thead.align) {
-        case "center":
-          thElement.add("text-center");
-          break;
-        case "right":
-          thElement.add("text-right");
-          break;
-        case "left":
-          thElement.add("text-left");
-          break;
-        default:
-          break;
-      }
-    }
-    if (Object.prototype.hasOwnProperty.call(options.columns.thead, "styles")) {
-      for (let property in options.columns.thead.styles) {
-        th.style.setProperty(property, options.columns.thead.styles[property]);
+    if (Object.prototype.hasOwnProperty.call(options, "columns")) {
+      if (Object.prototype.hasOwnProperty.call(options.columns, "thead")) {
+        const thElement = th.classList;
+        switch (options.columns.thead.align) {
+          case "center":
+            thElement.add("text-center");
+            break;
+          case "right":
+            thElement.add("text-right");
+            break;
+          case "left":
+            thElement.add("text-left");
+            break;
+          default:
+            break;
+        }
+        if (
+          Object.prototype.hasOwnProperty.call(options.columns.thead, "styles")
+        ) {
+          for (let property in options.columns.thead.styles) {
+            th.style.setProperty(
+              property,
+              options.columns.thead.styles[property]
+            );
+          }
+        }
       }
     }
     th.textContent = column;
@@ -85,32 +90,38 @@ const drawTable = (vm, options) => {
     vm.$data.columns.forEach((col) => {
       // create td inside tr
       const td = document.createElement("td");
-      if (Object.prototype.hasOwnProperty.call(options.columns, "tbody")) {
-        const tdElement = td.classList;
-        switch (options.columns.tbody.align) {
-          case "center":
-            tdElement.add("text-center");
-            break;
-          case "right":
-            tdElement.add("text-right");
-            break;
-          case "left":
-            tdElement.add("text-left");
-            break;
-          default:
-            break;
+      if (Object.prototype.hasOwnProperty.call(options, "columns")) {
+        if (Object.prototype.hasOwnProperty.call(options.columns, "tbody")) {
+          const tdElement = td.classList;
+          switch (options.columns.tbody.align) {
+            case "center":
+              tdElement.add("text-center");
+              break;
+            case "right":
+              tdElement.add("text-right");
+              break;
+            case "left":
+              tdElement.add("text-left");
+              break;
+            default:
+              break;
+          }
+          if (
+            Object.prototype.hasOwnProperty.call(
+              options.columns.tbody,
+              "styles"
+            )
+          ) {
+            for (let property in options.columns.tbody.styles) {
+              td.style.setProperty(
+                property,
+                options.columns.tbody.styles[property]
+              );
+            }
+          }
         }
       }
-      if (
-        Object.prototype.hasOwnProperty.call(options.columns.tbody, "styles")
-      ) {
-        for (let property in options.columns.tbody.styles) {
-          td.style.setProperty(
-            property,
-            options.columns.tbody.styles[property]
-          );
-        }
-      }
+
       // add values inside td
       if (Object.prototype.hasOwnProperty.call(options, "image")) {
         if (col == options.image.column) {
@@ -146,30 +157,35 @@ const drawTable = (vm, options) => {
   if (vm.$props.actions.length > 0) {
     // create th inside for actions
     const action = document.createElement("th");
-    if (Object.prototype.hasOwnProperty.call(options.columns, "thead")) {
-      const thElement = action.classList;
-      switch (options.columns.thead.align) {
-        case "center":
-          thElement.add("text-center");
-          break;
-        case "right":
-          thElement.add("text-right");
-          break;
-        case "left":
-          thElement.add("text-left");
-          break;
-        default:
-          break;
+    if (Object.prototype.hasOwnProperty.call(options, "columns")) {
+      if (Object.prototype.hasOwnProperty.call(options.columns, "thead")) {
+        const thElement = action.classList;
+        switch (options.columns.thead.align) {
+          case "center":
+            thElement.add("text-center");
+            break;
+          case "right":
+            thElement.add("text-right");
+            break;
+          case "left":
+            thElement.add("text-left");
+            break;
+          default:
+            break;
+        }
+        if (
+          Object.prototype.hasOwnProperty.call(options.columns.thead, "styles")
+        ) {
+          for (let property in options.columns.thead.styles) {
+            action.style.setProperty(
+              property,
+              options.columns.thead.styles[property]
+            );
+          }
+        }
       }
     }
-    if (Object.prototype.hasOwnProperty.call(options.columns.thead, "styles")) {
-      for (let property in options.columns.thead.styles) {
-        action.style.setProperty(
-          property,
-          options.columns.thead.styles[property]
-        );
-      }
-    }
+
     action.textContent = Object.prototype.hasOwnProperty.call(
       options,
       "actionsColumnName"
@@ -181,32 +197,38 @@ const drawTable = (vm, options) => {
     table.querySelectorAll("tbody tr").forEach((row, index) => {
       // create new td
       const actionTd = document.createElement("td");
-      if (Object.prototype.hasOwnProperty.call(options.columns, "tbody")) {
-        const actionTdElement = actionTd.classList;
-        switch (options.columns.tbody.align) {
-          case "center":
-            actionTdElement.add("text-center");
-            break;
-          case "right":
-            actionTdElement.add("text-right");
-            break;
-          case "left":
-            actionTdElement.add("text-left");
-            break;
-          default:
-            break;
+      if (Object.prototype.hasOwnProperty.call(options, "columns")) {
+        if (Object.prototype.hasOwnProperty.call(options.columns, "tbody")) {
+          const actionTdElement = actionTd.classList;
+          switch (options.columns.tbody.align) {
+            case "center":
+              actionTdElement.add("text-center");
+              break;
+            case "right":
+              actionTdElement.add("text-right");
+              break;
+            case "left":
+              actionTdElement.add("text-left");
+              break;
+            default:
+              break;
+          }
+          if (
+            Object.prototype.hasOwnProperty.call(
+              options.columns.tbody,
+              "styles"
+            )
+          ) {
+            for (let property in options.columns.tbody.styles) {
+              actionTd.style.setProperty(
+                property,
+                options.columns.tbody.styles[property]
+              );
+            }
+          }
         }
       }
-      if (
-        Object.prototype.hasOwnProperty.call(options.columns.tbody, "styles")
-      ) {
-        for (let property in options.columns.tbody.styles) {
-          actionTd.style.setProperty(
-            property,
-            options.columns.tbody.styles[property]
-          );
-        }
-      }
+
       // add display flex to td
       actionTd.style.display = "flex";
       // loop over actions
@@ -271,9 +293,9 @@ const drawTable = (vm, options) => {
             if (actionItem.hasOwnProperty("alert")) {
               btn.addEventListener("click", (e) => {
                 e.preventDefault();
-                this.title = "";
-                this.changeTitle(actionItem.alert);
-                this.sendForm(e);
+                vm.$data.title = "";
+                vm.changeTitle(actionItem.alert);
+                vm.sendForm(e);
               });
             }
             // create icon for btn

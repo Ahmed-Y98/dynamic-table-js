@@ -32,6 +32,10 @@ export default {
       default(){
         return {}
       }
+    },
+    classes:{
+      required: false,
+      type: String
     }
   },
   mounted() {
@@ -43,7 +47,7 @@ export default {
       span.textContent = "No Records Found";
       this.$refs.table.appendChild(span);
     } else {
-      drawTable(this , this.options);
+      drawTable(this , this.options , this.classes);
     }
   },
   methods: {
