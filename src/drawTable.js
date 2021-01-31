@@ -129,22 +129,39 @@ const drawTable = (vm, options, classes) => {
             Object.prototype.hasOwnProperty.call(options.image, "width") &&
             Object.prototype.hasOwnProperty.call(options.image, "height")
           ) {
-            // create img element
-            const img = document.createElement("img");
-            img.classList.add("img-fluid");
-            img.style.width = options.image.width + "px";
-            img.style.height = options.image.height + "px";
-            img.src = value[col];
-            td.appendChild(img);
+            if (
+              Object.prototype.hasOwnProperty.call(options.image, "lightbox")
+            ) {
+              // create a tag
+              const link = document.createElement("a");
+              const randomNumber = Math.random();
+              link.setAttribute("data-lightbox", `image_${randomNumber}`);
+              // create img element
+              const img = document.createElement("img");
+              img.classList.add("img-fluid");
+              img.style.width = options.image.width + "px";
+              img.style.height = options.image.height + "px";
+              img.src = value[col];
+              link.appendChild(img);
+              td.appendChild(link);
+            } else {
+              // create img element
+              const img = document.createElement("img");
+              img.classList.add("img-fluid");
+              img.style.width = options.image.width + "px";
+              img.style.height = options.image.height + "px";
+              img.src = value[col];
+              td.appendChild(img);
+            }
           } else {
             vm.$refs.table.remove();
             console.error("VuetyTable: image dimensions are missing");
           }
         } else {
-          td.textContent = value[col];
+          td.innerHTML = value[col];
         }
       } else {
-        td.textContent = value[col];
+        td.innerHTML = value[col];
       }
       // append td to tr
       tbodyTr.appendChild(td);
