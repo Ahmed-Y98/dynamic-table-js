@@ -53,11 +53,13 @@ import "vuetytable/dist/vuetytable.css";
 <vuetytable
   :data="data"
   :actions="actions"
+  :classes="`my-custom-css-class`"
   :options="{
     image: {
         column: 'picture',
         width: 50,
         height: 50,
+        lightbox: true
         },
     columns: {
         thead: {
@@ -95,11 +97,16 @@ import "vuetytable/dist/vuetytable.css";
 
 ###### NEW:
 
+-- The Library Supports Vue 3
+-- Added LighTbox Plugin
+-- With The `Classes` Prop Now You Can Add Your Preffered Css Classes
+
 - With the options prop you can customize the table even more.
 - if you want to display an image in the table you can now do that by passing the image object which contains the following keys:
 - `column` is the column name of the picture.
 - `height` of the picture.
 - `width` of the picture.
+- `lightbox` key if you want to use lightbox plugin
 - `columns` which contains customizable options for the table head and the table body.
 - `urlColumnCode` if you want to change the code in the url.
 

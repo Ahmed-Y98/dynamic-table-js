@@ -12,6 +12,7 @@
               column: 'picture',
               width: 80,
               height: 80,
+              lightbox: true,
             },
           }"
         />
@@ -47,9 +48,18 @@ export default {
       actions: [
         {
           tag: "a",
+          btn: "btn-dark mr-2",
+          text: "update",
+          url: "/test",
+          title: "test",
+        },
+        {
+          tag: "form",
           btn: "btn-dark",
           text: "update",
           url: "/test",
+          title: "test",
+          alert: "adds",
         },
       ],
       status: false,

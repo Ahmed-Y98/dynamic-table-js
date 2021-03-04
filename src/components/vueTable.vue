@@ -26,28 +26,28 @@ export default {
       required: true,
       type: Array,
     },
-    options:{
+    options: {
       required: false,
       type: Object,
-      default(){
-        return {}
-      }
+      default() {
+        return {};
+      },
     },
-    classes:{
+    classes: {
       required: false,
-      type: String
-    }
+      type: String,
+    },
   },
   mounted() {
     Array.from(this.actions).forEach((action) => {
-        checkProps(action , this);
+      checkProps(action, this);
     });
     if (this.data.length === 0) {
       const span = document.createElement("span");
       span.textContent = "No Records Found";
       this.$refs.table.appendChild(span);
     } else {
-      drawTable(this , this.options , this.classes);
+      drawTable(this, this.options, this.classes);
     }
   },
   methods: {
@@ -73,8 +73,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
-</style>

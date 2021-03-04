@@ -1,6 +1,6 @@
 {
   "name": "vuetytable",
-  "version": "0.3.0",
+  "version": "1.0.0-alpha.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -17,19 +17,21 @@
     "now-build": "vue-cli-service build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "@vue/compiler-sfc": "^3.0.5",
-    "bootstrap": "^4.5.3",
-    "core-js": "^3.6.5",
+    "bootstrap": "^4.6.0",
+    "chokidar": "^3.5.1",
+    "core-js": "^3.8.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "vue-template-compiler": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@vue/cli-plugin-babel": "^4.5.11",
+    "@vue/cli-plugin-eslint": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",

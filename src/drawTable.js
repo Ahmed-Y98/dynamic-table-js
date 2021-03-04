@@ -136,6 +136,7 @@ const drawTable = (vm, options, classes) => {
               const link = document.createElement("a");
               const randomNumber = Math.random();
               link.setAttribute("data-lightbox", `image_${randomNumber}`);
+              link.setAttribute("href", value[col]);
               // create img element
               const img = document.createElement("img");
               img.classList.add("img-fluid");
@@ -247,7 +248,7 @@ const drawTable = (vm, options, classes) => {
       }
 
       // add display flex to td
-      actionTd.style.display = "flex";
+      // actionTd.style.display = "flex";
       // loop over actions
       vm.$props.actions.forEach((actionItem) => {
         // check for action props
@@ -264,6 +265,10 @@ const drawTable = (vm, options, classes) => {
             element.className = `btn ${actionItem.btn} text-capitalize`;
 
             element.innerHTML = actionItem.text ? actionItem.text : "";
+
+            if (actionItem.title) {
+              element.setAttribute("title", actionItem.title);
+            }
 
             // create icon
             if (actionItem.icon) {
@@ -304,6 +309,10 @@ const drawTable = (vm, options, classes) => {
             btn.setAttribute("type", "submit");
             btn.className = `btn ${actionItem.btn}`;
             btn.textContent = actionItem.text ? actionItem.text : "";
+
+            if (actionItem.title) {
+              btn.setAttribute("title", actionItem.title);
+            }
 
             // check if it has the alert option
             // eslint-disable-next-line no-prototype-builtins
