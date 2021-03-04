@@ -97,9 +97,9 @@ import "vuetytable/dist/vuetytable.css";
 
 ###### NEW:
 
--- The Library Supports Vue 3
--- Added LighTbox Plugin
--- With The `Classes` Prop Now You Can Add Your Preffered Css Classes
+- The Library Supports Vue 3
+- Added LighTbox Plugin
+- With The `Classes` Prop Now You Can Add Your Preffered Css Classes
 
 - With the options prop you can customize the table even more.
 - if you want to display an image in the table you can now do that by passing the image object which contains the following keys:
