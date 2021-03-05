@@ -4,6 +4,12 @@
 
 This Vue Component can draw a table dynamically.
 
+<p>
+    <a href="https://www.npmjs.com/package/vuetytable"><img src="https://img.shields.io/npm/dt/vuetytable.svg" alt="Total Downloads"></a>
+    <a href="https://github.com/Ahmed-Y98/vuetytable"><img src="https://img.shields.io/npm/v/vuetytable.svg" alt="Latest Release"></a>
+    <a href="https://github.com/Ahmed-Y98/vuetytable/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/vuetytable.svg" alt="License"></a>
+</p>
+
 ## Prepare The Environment
 
 ```bash
