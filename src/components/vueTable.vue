@@ -52,8 +52,19 @@ export default {
   },
   methods: {
     getColumnNames() {
-      const [object] = this.data;
-      this.columns = Object.keys(object);
+      // eslint-disable-next-line no-prototype-builtins
+      if (this.options.hasOwnProperty("excludeColumns")) {
+        const [object] = this.data;
+        for (let key in object) {
+          if (this.options.excludeColumns.includes(key)) {
+            delete object[key];
+          }
+        }
+        this.columns = Object.keys(object);
+      } else {
+        const [object] = this.data;
+        this.columns = Object.keys(object);
+      }
     },
     sendForm(e) {
       e.stopPropagation();

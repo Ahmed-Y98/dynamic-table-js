@@ -15,12 +15,23 @@ const checkForProps = (prop, vm) => {
     console.error("icon or text is missing");
     vm.$data.status = "error";
     // eslint-disable-next-line no-prototype-builtins
-  } else if (!prop.hasOwnProperty("url")) {
-    console.error("URL option is missing");
-    vm.$data.status = "error";
+  } else if (!prop.hasOwnProperty("modal")) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (!prop.hasOwnProperty("url")) {
+      console.error("URL option is missing");
+      vm.$data.status = "error";
+    }
     // eslint-disable-next-line no-prototype-builtins
   } else if (prop.tag === "a" && prop.hasOwnProperty("alert")) {
     console.error("alert option can be set with the <form> tag only");
+    vm.$data.status = "error";
+    // eslint-disable-next-line no-prototype-builtins
+  } else if (prop.tag === "form" && prop.hasOwnProperty("modal")) {
+    console.error("Modal option can be set with the <a> tag only");
+    vm.$data.status = "error";
+    // eslint-disable-next-line no-prototype-builtins
+  } else if (prop.hasOwnProperty("url") && prop.hasOwnProperty("modal")) {
+    console.error("Modal option cannot Have A Url Option");
     vm.$data.status = "error";
   } else {
     vm.$data.status = "";

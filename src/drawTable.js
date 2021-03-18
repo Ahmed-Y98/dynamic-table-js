@@ -257,10 +257,20 @@ const drawTable = (vm, options, classes) => {
           const element = document.createElement(actionItem.tag);
           // set attributes for <a> tag
           if (actionItem.tag === "a") {
-            element.setAttribute(
-              "href",
-              `${actionItem.url}/${vm.$data.keys[index]}`
-            );
+            // eslint-disable-next-line no-prototype-builtins
+            if (!actionItem.hasOwnProperty("modal")) {
+              element.setAttribute(
+                "href",
+                `${actionItem.url}/${vm.$data.keys[index]}`
+              );
+            } else {
+              element.setAttribute("href", `#`);
+              element.setAttribute("data-toggle", "modal");
+              element.setAttribute(
+                "data-target",
+                "#vuety-target-" + vm.$data.keys[index]
+              );
+            }
 
             element.className = `btn ${actionItem.btn} text-capitalize`;
 

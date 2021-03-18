@@ -50,8 +50,8 @@ export default {
           tag: "a",
           btn: "btn-dark mr-2",
           text: "update",
-          url: "/test",
           title: "test",
+          modal: true,
         },
         {
           tag: "form",
