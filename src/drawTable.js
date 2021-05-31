@@ -1,9 +1,10 @@
 const drawTable = (vm, options, classes) => {
+  console.log(vm);
   // get column Names
   vm.getColumnNames();
   // create table
   const table = document.createElement("table");
-  // add classes and ID  to the table
+  // add classes and ID to the table
   table.className = `table table-light table-striped table-responsive-sm table-responsive-md table-bordered table-hover `;
 
   if (classes) {

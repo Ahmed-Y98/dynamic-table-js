@@ -1,10 +1,11 @@
+/* eslint-disable vue/valid-v-bind */
+/* eslint-disable vue/no-parsing-error */
 <template>
   <div id="app">
     <div class="container mt-5">
       <div class="row">
         <vue-table
-          class="ahmed"
-          :data="records"
+          :data="data"
           :actions="actions"
           :options="{
             urlColumnCode: 'id',
@@ -14,6 +15,7 @@
               height: 80,
               lightbox: true,
             },
+            excludeColumns: ['id'],
           }"
         />
       </div>
@@ -21,59 +23,29 @@
   </div>
 </template>
 
-<script>
-import vueTable from "./components/vueTable";
+<script lang="ts">
+import { defineComponent } from "vue";
+import vueTable from "./components/vueTable.vue";
 
-export default {
+export default defineComponent({
   name: "App",
   components: {
-    "vue-table": vueTable,
+    vueTable,
   },
   data() {
     return {
-      records: [
-        {
-          id: 1,
-          name: "test",
-          picture:
-            "https://images.unsplash.com/photo-1553634551-6d1e9f22afee?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60",
-        },
-        {
-          id: 2,
-          name: "test",
-          picture:
-            "https://images.unsplash.com/photo-1553634551-6d1e9f22afee?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60",
-        },
-      ],
       actions: [
         {
           tag: "a",
-          btn: "btn-dark mr-2",
-          text: "update",
-          title: "test",
-          modal: true,
-        },
-        {
-          tag: "form",
           btn: "btn-dark",
-          text: "update",
-          url: "/test",
-          title: "test",
-          alert: "adds",
+          url: "example.com",
+          text: "lorem",
+          icon: "fa-edit",
+          alert: "any message",
         },
       ],
-      status: false,
+      data: [{ id: 1, name: "lorem" }],
     };
   },
-  beforeCreate() {
-    // fetch("https://jsonplaceholder.typicode.com/todos")
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     this.status = true;
-    //     this.records = json;
-    //   });
-  },
-};
+});
 </script>
-
-<style scoped></style>
